@@ -27,7 +27,8 @@ https://studio.datacult.com/ -->
     import { viz_1_3 } from '../js/1_3.js';
 
     (async () => {
-        let data = await d3.csv('https://share.chartmetric.com/year-end-report/2023/viz_1_3_en.csv', d3.autoType)
+        let data = await d3.csv('https://share.chartmetric.com/year-end-report/2024/viz_T5_en.csv', d3.autoType)
+        console.log(data)
 
         let chart = viz_1_3(data, "viz_1_3")
     })()

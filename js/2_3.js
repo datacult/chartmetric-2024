@@ -1,6 +1,6 @@
 // © 2024 Data Culture
 // Released under the ISC license.
-// https://studio.datacult.com/ 
+// https://studio.datacult.com/
 
 // Description:
 
@@ -36,7 +36,7 @@ export function viz_2_3(data, selector) {
       let platformData = data
         .filter((d) => d.PLATFORM.toLowerCase() === platform.toLowerCase())
         .sort(
-          (a, b) => b.FOLLOWERS_2023_PROPORTION - a.FOLLOWERS_2023_PROPORTION
+          (a, b) => b.FOLLOWERS_2024_PROPORTION - a.FOLLOWERS_2024_PROPORTION
         );
 
       // Create a column for each platform
@@ -45,7 +45,9 @@ export function viz_2_3(data, selector) {
         .attr("class", `column ${platform.toLowerCase()}`);
       //* for each platform, there are two sections in a column: The icon and the platform text
       //* let's append the country section
-      let countrySection = column.append("div").attr("class", "country-section");
+      let countrySection = column
+        .append("div")
+        .attr("class", "country-section");
       //* let's append the country section
       let iconSection = column.append("div").attr("class", "icon-section");
 
@@ -64,8 +66,7 @@ export function viz_2_3(data, selector) {
         countryRow
           .append("span")
           .attr("class", "country-value")
-          .text(d3.format(".1%")(d.FOLLOWERS_2023_PROPORTION));
-
+          .text(d3.format(".1%")(d.FOLLOWERS_2024_PROPORTION));
       });
 
       // icon and platform name
@@ -75,7 +76,6 @@ export function viz_2_3(data, selector) {
       headingContainer
         .append("div")
         .attr("class", (d) => {
-         
           return "icon";
         })
         .html((d) => {

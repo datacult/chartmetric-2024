@@ -6,8 +6,10 @@
 
 import { calendarsummary } from "./calendar_summary.js";
 
+const YEAR = 2024;
+
 export function viz_2_6(data, map, options) {
-  // console.log(data)
+  console.log("1", data);
 
   ////////////////////////////////////////
   /////////////// Defaults ///////////////
@@ -59,7 +61,7 @@ export function viz_2_6(data, map, options) {
   ];
 
   d3.csv(
-    "https://share.chartmetric.com/year-end-report/2023/viz_2_6_2_en.csv",
+    "https://share.chartmetric.com/year-end-report/2024/viz_2_6_summary_en.csv",
     d3.autoType
   ).then((summaryData) => {
     // replace month number with month name
@@ -140,7 +142,7 @@ export function viz_2_6(data, map, options) {
   ////////////////////////////////////////
 
   // filter to year
-  data = data.filter((d) => new Date(d[map.date]).getUTCFullYear() == 2023);
+  data = data.filter((d) => new Date(d[map.date]).getUTCFullYear() == YEAR);
 
   const daysOfWeek = [
     "Sunday",
@@ -307,7 +309,7 @@ export function viz_2_6(data, map, options) {
   svg.selectAll(".tick line").remove();
 
   d3.csv(
-    "https://share.chartmetric.com/year-end-report/2023/viz_2_6_1_en.csv",
+    "https://share.chartmetric.com/year-end-report/2023/viz_2_6_1_en.csv", // TODO: update with 2024 data
     d3.autoType
   ).then((photoData) => {
     // Process the data

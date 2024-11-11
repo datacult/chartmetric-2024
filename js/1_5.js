@@ -14,7 +14,7 @@ export function viz_1_5(data, mapping, options) {
 
   let map = {
     image: "IMAGE_URL",
-    size: "Gained in 2023",
+    size: "Gained in 2024",
   }
 
   mapping = { ...map, ...mapping };
@@ -47,7 +47,7 @@ export function viz_1_5(data, mapping, options) {
       IMAGE_URL: d.IMAGE_URL,
       PLATFORM: d.PLATFORM,
       ID: d.ID,
-      "Gained in 2023": null,
+      "Gained in 2024": null,
       "All Time": null
     }
 
