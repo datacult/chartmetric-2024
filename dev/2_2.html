@@ -30,7 +30,8 @@ https://studio.datacult.com/ -->
     import { viz_2_2 } from '../js/2_2.js'
 
     (async () => {
-        let data = await d3.csv("https://share.chartmetric.com/year-end-report/2023/viz_2_2_en.csv", d3.autoType)
+        // TODO: check that all image urls are resolving correctly (one image missing for pop, all time, artist genres)
+        let data = await d3.csv("https://share.chartmetric.com/year-end-report/2024/viz_2_2_en.csv", d3.autoType)
 
         let options = {
             genreType: "Artist Genres",
@@ -41,12 +42,12 @@ https://studio.datacult.com/ -->
 
         setTimeout(
             () =>
-                updateTreemap.update(null, { genreType: "Artist Genres", timeframe: 2023 }),
+                updateTreemap.update(null, { genreType: "Artist Genres", timeframe: 2024 }),
             2000
         );
         setTimeout(
             () =>
-                updateTreemap.update(null, { genreType: "Track Genres", timeframe: 2023 }),
+                updateTreemap.update(null, { genreType: "Track Genres", timeframe: 2024 }),
             4000
         );
 

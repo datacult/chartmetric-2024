@@ -116,6 +116,7 @@ export function viz_2_9(data, map, options, svg) {
     //////////// Data Wrangling ////////////
     ////////////////////////////////////////
 
+    // TODO: might need update when only one genre is present instead of multiple genres as before
     data.forEach(d => {
       if (!Array.isArray(d[map.genre])) d[map.genre] = JSON.parse(d[map.genre])
     });

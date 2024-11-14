@@ -24,14 +24,14 @@ https://studio.datacult.com/ -->
 <script type="module">
     import { chartmetric_circlepack } from '../js/chartmetric_circlepack.js';
     (async () => {
-        let data = await d3.csv('https://share.chartmetric.com/year-end-report/2023/viz_2_14_en.csv', d3.autoType)
+        let data = await d3.csv('https://share.chartmetric.com/year-end-report/2024/viz_2_14_en.csv', d3.autoType)
 
         console.log(data)
 
         let mapping = {
-            group: "GENRE",
+            group: "TRACK_GENRE", // in 2023 "GENRE" is the column name
             label: "NAME",
-            image: "IMAGE_URL",
+            image: "IMAGE_URL", // TODO: check if existing in data
             filter: {
                 TYPE: "track"
             }

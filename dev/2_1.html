@@ -24,6 +24,7 @@ https://studio.datacult.com/ -->
     import { chartmetric_circlepack } from '../js/chartmetric_circlepack.js';
 
     (async () => {
+        // TODO: wait for correct data
         let data = await d3.csv('https://share.chartmetric.com/year-end-report/2023/viz_2_1_en.csv', d3.autoType)
 
         let mapping = {
