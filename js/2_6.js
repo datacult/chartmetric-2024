@@ -9,8 +9,6 @@ import { calendarsummary } from "./calendar_summary.js";
 const YEAR = 2024;
 
 export function viz_2_6(data, map, options) {
-  console.log("1", data);
-
   ////////////////////////////////////////
   /////////////// Defaults ///////////////
   ////////////////////////////////////////
@@ -185,8 +183,6 @@ export function viz_2_6(data, map, options) {
     };
   });
 
-  console.log(data);
-
   ////////////////////////////////////////
   ////////////// Scales //////////////////
   ////////////////////////////////////////
@@ -327,8 +323,6 @@ export function viz_2_6(data, map, options) {
         month,
       };
     });
-
-    console.log(photoData);
 
     // add images
     const rotateScale = d3.scaleLinear().domain([0, 100]).range([-15, 15]);

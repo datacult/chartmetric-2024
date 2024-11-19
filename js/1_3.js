@@ -9,8 +9,6 @@ export function viz_1_3(data = [], selector = "vis", platform = "Youtube") {
     data = newData != null ? newData : data;
     platform = newPlatform;
 
-    // console.log('table_1_3 update', data, platform);
-
     // Filtering objects based on the 'Platform' property
     const filteredData = data.filter((track) => track["PLATFORM"] === platform);
 
@@ -18,8 +16,6 @@ export function viz_1_3(data = [], selector = "vis", platform = "Youtube") {
     const sortedArray = filteredData.sort(
       (a, b) => a.TRACK_RANK - b.TRACK_RANK
     );
-
-    console.log(sortedArray);
 
     // Rendering HTML elements to element with selector
     const wrapper = document.getElementById(selector);
