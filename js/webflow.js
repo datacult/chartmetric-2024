@@ -22,27 +22,27 @@ import { viz_2_9 } from "./2_9.js";
   // hold data and vizualization instance in one object
   // all update functions should take the data as the first argument
   let visuals = {
-    viz_1_1: {
-      viz: null,
-      data: [],
-      pending_data_update: false,
-      options: {
-        selector: "#viz_1_1",
-      },
-      mapping: {
-        source: "SOURCE",
-        target: "TARGET",
-        value: "VALUE",
-      },
-      params: [],
-      update: function (param) {
-        if (param !== undefined && param !== null) {
-          this.viz.update(null, param);
-        } else {
-          this.viz.update(this.data);
-        }
-      },
-    },
+    // viz_1_1: {
+    //   viz: null,
+    //   data: [],
+    //   pending_data_update: false,
+    //   options: {
+    //     selector: "#viz_1_1",
+    //   },
+    //   mapping: {
+    //     source: "SOURCE",
+    //     target: "TARGET",
+    //     value: "VALUE",
+    //   },
+    //   params: [],
+    //   update: function (param) {
+    //     if (param !== undefined && param !== null) {
+    //       this.viz.update(null, param);
+    //     } else {
+    //       this.viz.update(this.data);
+    //     }
+    //   },
+    // },
     viz_1_2: {
       viz: null,
       data: [],
