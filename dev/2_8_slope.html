@@ -27,10 +27,10 @@ https://studio.datacult.com/ -->
 
     (async () => {
 
+        // TODO: remove hard coded data, but instead pull from S3
         // let data = await d3.csv('https://share.chartmetric.com/year-end-report/2023/viz_2_8_en.csv', d3.autoType)
         let data = await d3.csv('../assets/viz_2_8_en_2024.csv', d3.autoType)
 
-        console.log(data)
 
         let mapping = {
             x: 'YEAR', // 'MONTH_LABEL'
@@ -38,12 +38,11 @@ https://studio.datacult.com/ -->
             group: 'NAME',
             sort:  'CM_SCORE', // 'SCORE_MONTH',
             title: 'NAME',
-            location:'ARTIST_HOME_COUNTRY',
-            type: 'ARTIST_TYPE',
+            location: 'COUNTRY', //'ARTIST_HOME_COUNTRY',
+            type: "BAND", // 'ARTIST_TYPE',
             artist_image: 'IMAGE_URL',
             pronouns: 'PRONOUN',
-            flag:"COUNTRY_CODE",
-            months_in_top_10: 'MONTHS_IN_TOP_10',
+            flag:"COUNTRY_CODE", // TODO: add once existing
         }
 
         let options = {

@@ -125,7 +125,9 @@ export function artistinfo(data, map, options) {
 
     country.data(data).text((d) => d[map.location]);
 
-    pronouns.data(data).text((d) => `${d[map.pronouns]}, ${d[map.type]}`);
+    pronouns
+      .data(data)
+      .text((d) => `${d[map.pronouns]}, ${d[map.type] ? "Solo" : "Band"}`);
 
     // months_in_top_10
     //   .data(data)

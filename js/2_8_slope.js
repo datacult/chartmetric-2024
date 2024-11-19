@@ -7,6 +7,7 @@
 import { artistinfo } from "./artist_info_slope.js";
 
 export function viz_2_8_slope(data, map, options) {
+  console.log("viz_2_8_slope", data, map, options);
   ////////////////////////////////////////
   /////////////// Defaults ///////////////
   ////////////////////////////////////////
@@ -21,7 +22,6 @@ export function viz_2_8_slope(data, map, options) {
 
   // merge default mapping with user mapping
   map = { ...mapping, ...map };
-  console.log("map", map);
 
   let defaults = {
     selector: "#vis",
@@ -151,8 +151,6 @@ export function viz_2_8_slope(data, map, options) {
     }
     return accumulator;
   }, []);
-
-  console.log("firstAppearance", firstAppearance);
 
   ////////////////////////////////////////
   ////////////// Scales //////////////////

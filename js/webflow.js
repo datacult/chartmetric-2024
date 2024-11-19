@@ -330,10 +330,10 @@ import { viz_2_9 } from "./2_9.js";
       data: [],
       pending_data_update: false,
       options: {
-        selector: "#viz_2_8_slope",
+        selector: "#viz_2_8",
         fill: "#1781F7",
         stroke: "black",
-        focus: "Drake",
+        focus: "Taylor Swift",
       },
       mapping: {
         x: "YEAR", // 'MONTH_LABEL'
@@ -341,12 +341,11 @@ import { viz_2_9 } from "./2_9.js";
         group: "NAME",
         sort: "CM_SCORE", // 'SCORE_MONTH',
         title: "NAME",
-        location: "ARTIST_HOME_COUNTRY",
-        type: "ARTIST_TYPE",
+        location: "COUNTRY", //'ARTIST_HOME_COUNTRY',
+        type: "BAND", // 'ARTIST_TYPE',
         artist_image: "IMAGE_URL",
         pronouns: "PRONOUN",
-        flag: "COUNTRY_CODE",
-        months_in_top_10: "MONTHS_IN_TOP_10",
+        flag: "COUNTRY_CODE", // TODO: add once existing
       },
       params: [],
       update: function (param) {
@@ -552,6 +551,19 @@ import { viz_2_9 } from "./2_9.js";
     await Promise.all(
       Object.keys(visuals).map((viz) => {
         if (loadVisualCheck[viz] == true) {
+          // TODO: remove hard coded data for 2_8_slope
+          if (viz == "viz_2_8_slope") {
+            console.log("viz_2_8_slope", viz, lan);
+            return d3
+              .csv("../assets/viz_2_8_en_2024.csv", d3.autoType)
+              .then((data) => {
+                return { name: viz, data: data };
+              })
+              .catch((error) => {
+                return null;
+              });
+          }
+
           return d3
             .csv(
               `https://share.chartmetric.com/year-end-report/2024/${viz}_${lan}.csv`,
