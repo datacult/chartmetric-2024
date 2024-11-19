@@ -7,7 +7,7 @@ import { viz_1_2 } from "./1_2.js";
 import { viz_1_3 } from "./1_3.js";
 import { viz_1_5 } from "./1_5.js";
 import { chartmetric_circlepack } from "./chartmetric_circlepack.js";
-import { viz_2_5 } from "./2_5.js";
+// import { viz_2_5 } from "./2_5.js";
 import { viz_2_2 } from "./2_2.js";
 import { viz_2_3 } from "./2_3.js";
 import { viz_2_6 } from "./2_6.js";
@@ -105,7 +105,7 @@ import { viz_2_9 } from "./2_9.js";
         selector: "#viz_1_5",
       },
       mapping: {},
-      params: ["Gained in 2023", "All Time"],
+      params: ["Gained in 2024", "All Time"],
       update: function (param) {
         if (param !== undefined && param !== null) {
           this.viz.update(null, param);
@@ -123,16 +123,16 @@ import { viz_2_9 } from "./2_9.js";
         fill: "black",
         stroke: "white",
         background:
-          "https://datacult.github.io/chartmetric-2023/assets/2_1_gradient.svg",
+          "https://datacult.github.io/chartmetric-2024/assets/2_1_gradient.svg",
         blend: "soft-light",
       },
       mapping: {
         value: "PEAK_CM_SCORE",
-        label: "ARTIST_NAME",
-        group: "COUNTRY_NAME",
+        label: "NAME",
+        group: "COUNTRY",
         image: "IMAGE_URL",
       },
-      params: ["COUNTRY_NAME", "GENDER"],
+      params: ["NAME", "GENDER"],
       update: function (param) {
         if (param !== undefined && param !== null) {
           this.mapping.group = param;
@@ -153,7 +153,7 @@ import { viz_2_9 } from "./2_9.js";
       },
       params: [
         ["Artist Genres", "Track Genres"],
-        ["All Time", 2023],
+        ["All Time", 2024],
       ],
       queue: [],
       isProcessingQueue: false,
@@ -201,49 +201,49 @@ import { viz_2_9 } from "./2_9.js";
         }
       },
     },
-    viz_2_5: {
-      viz: null,
-      data: [],
-      pending_data_update: false,
-      options: {
-        selector: "#viz_2_5",
-      },
-      params: [
-        { bar: "end_total", arc: { focus: null, opacity: 0 } },
-        { bar: "end_total", arc: { focus: null, opacity: 0.03 } },
-        { bar: "Undiscovered", arc: { focus: "Undiscovered", opacity: 0.03 } },
-        { bar: "Developing", arc: { focus: "Developing", opacity: 0.03 } },
-        { bar: "Mid-Level", arc: { focus: "Mid-Level", opacity: 0.03 } },
-        { bar: "Mainstream", arc: { focus: "Mainstream", opacity: 0.03 } },
-        { bar: "Superstar", arc: { focus: "Superstar", opacity: 0.03 } },
-        { bar: "Legendary", arc: { focus: "Legendary", opacity: 0.03 } },
-      ],
-      update: function (param) {
-        // expects an object with 'bar' & 'arc' keys
-        if (param !== undefined && param !== null) {
-          if (param.hasOwnProperty("bar")) {
-            this.viz.bar.update(
-              null,
-              { y: param.bar },
-              { focus: param.arc.focus }
-            );
-          } else {
-            this.viz.bar.update(this.data);
-          }
-          if (param.hasOwnProperty("arc")) {
-            this.viz.arc.update(
-              null,
-              { focus: param.arc.focus },
-              { opacity: param.arc.opacity }
-            );
-          } else {
-            this.viz.arc.update(this.data);
-          }
-        } else {
-          this.viz.bar.update(this.data);
-        }
-      },
-    },
+    // viz_2_5: {
+    //   viz: null,
+    //   data: [],
+    //   pending_data_update: false,
+    //   options: {
+    //     selector: "#viz_2_5",
+    //   },
+    //   params: [
+    //     { bar: "end_total", arc: { focus: null, opacity: 0 } },
+    //     { bar: "end_total", arc: { focus: null, opacity: 0.03 } },
+    //     { bar: "Undiscovered", arc: { focus: "Undiscovered", opacity: 0.03 } },
+    //     { bar: "Developing", arc: { focus: "Developing", opacity: 0.03 } },
+    //     { bar: "Mid-Level", arc: { focus: "Mid-Level", opacity: 0.03 } },
+    //     { bar: "Mainstream", arc: { focus: "Mainstream", opacity: 0.03 } },
+    //     { bar: "Superstar", arc: { focus: "Superstar", opacity: 0.03 } },
+    //     { bar: "Legendary", arc: { focus: "Legendary", opacity: 0.03 } },
+    //   ],
+    //   update: function (param) {
+    //     // expects an object with 'bar' & 'arc' keys
+    //     if (param !== undefined && param !== null) {
+    //       if (param.hasOwnProperty("bar")) {
+    //         this.viz.bar.update(
+    //           null,
+    //           { y: param.bar },
+    //           { focus: param.arc.focus }
+    //         );
+    //       } else {
+    //         this.viz.bar.update(this.data);
+    //       }
+    //       if (param.hasOwnProperty("arc")) {
+    //         this.viz.arc.update(
+    //           null,
+    //           { focus: param.arc.focus },
+    //           { opacity: param.arc.opacity }
+    //         );
+    //       } else {
+    //         this.viz.arc.update(this.data);
+    //       }
+    //     } else {
+    //       this.viz.bar.update(this.data);
+    //     }
+    //   },
+    // },
     viz_2_6: {
       viz: null,
       data: [],
@@ -431,11 +431,11 @@ import { viz_2_9 } from "./2_9.js";
         stroke: "white",
         text: "white",
         background:
-          "https://datacult.github.io/chartmetric-2023/assets/2_14_gradient.svg",
+          "https://datacult.github.io/chartmetric-2024/assets/2_14_gradient.svg",
         blend: "soft-light",
       },
       mapping: {
-        group: "GENRE",
+        group: "TRACK_GENRE",
         label: "NAME",
         image: "IMAGE_URL",
         filter: {
@@ -519,12 +519,9 @@ import { viz_2_9 } from "./2_9.js";
     await Promise.all(
       Object.keys(visuals).map((viz) => {
         if (loadVisualCheck[viz] == true) {
-          // https://share.chartmetric.com/year-end-report/2023/viz_2_7_en.csv
-          // https://share.chartmetric.com/year-end-report/2024/viz_2_7_en.csv
-
           return d3
             .csv(
-              `https://share.chartmetric.com/year-end-report/2023/${viz}_${lan}.csv`,
+              `https://share.chartmetric.com/year-end-report/2024/${viz}_${lan}.csv`,
               d3.autoType
             )
             .then((data) => {
@@ -710,13 +707,13 @@ import { viz_2_9 } from "./2_9.js";
               );
               observer.disconnect();
             }
-            if (viz == "viz_2_5") {
-              visuals.viz_2_5.viz = viz_2_5(
-                visuals.viz_2_5.data,
-                visuals.viz_2_5.options
-              );
-              observer.disconnect();
-            }
+            // if (viz == "viz_2_5") {
+            //   visuals.viz_2_5.viz = viz_2_5(
+            //     visuals.viz_2_5.data,
+            //     visuals.viz_2_5.options
+            //   );
+            //   observer.disconnect();
+            // }
             if (viz == "viz_2_6") {
               visuals.viz_2_6.viz = viz_2_6(
                 visuals.viz_2_6.data,
