@@ -846,6 +846,9 @@ https://studio.datacult.com/  */
 #viz_2_8 text {
   font-size: 16px;
 }
+#viz_2_8 path {
+  transition: opacity 0.3s;
+}
 
 #viz_2_8 .labels {
   font-size: 20px;
