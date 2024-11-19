@@ -553,9 +553,12 @@ import { viz_2_9 } from "./2_9.js";
         if (loadVisualCheck[viz] == true) {
           // TODO: remove hard coded data for 2_8_slope
           if (viz == "viz_2_8_slope") {
-            console.log("viz_2_8_slope", viz, lan);
+            console.log("viz_2_8_slope extra data", viz, lan);
             return d3
-              .csv("../assets/viz_2_8_en_2024.csv", d3.autoType)
+              .csv(
+                "https://datacult.github.io/chartmetric-2024/assets/viz_2_8_en_2024.csv",
+                d3.autoType
+              )
               .then((data) => {
                 return { name: viz, data: data };
               })
