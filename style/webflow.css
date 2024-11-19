@@ -2,7 +2,6 @@
 Released under the ISC license.
 https://studio.datacult.com/  */
 
-
 .viz {
   width: 100%;
   height: 100%;
@@ -44,7 +43,6 @@ https://studio.datacult.com/  */
     font-size: 3em;
   }
 }
-
 
 /* * * * * * * * * * * * * * * 
 / Viz 1_3
@@ -395,7 +393,6 @@ https://studio.datacult.com/  */
   /* white-space: pre-line; */
 }
 
-
 /* * * * * * * * * * * * * * * 
 / Viz 2_1
 * * * * * * * * * * * * * * * */
@@ -411,11 +408,13 @@ https://studio.datacult.com/  */
   width: 100%;
   height: 100%;
   border-radius: 877px;
-  background: conic-gradient(from 180deg at 50% 50%,
-      #feb425 0deg,
-      #6eddf5 108.75000357627869deg,
-      #d8b9ff 223.12500715255737deg,
-      #6ac3f5 360deg);
+  background: conic-gradient(
+    from 180deg at 50% 50%,
+    #feb425 0deg,
+    #6eddf5 108.75000357627869deg,
+    #d8b9ff 223.12500715255737deg,
+    #6ac3f5 360deg
+  );
   filter: blur(167.7881317138672px);
 }
 
@@ -504,7 +503,6 @@ https://studio.datacult.com/  */
   text-wrap: nowrap;
   overflow: hidden;
 }
-
 
 @media (max-width: 500px) {
   #viz_2_2 .label-bg {
@@ -646,7 +644,6 @@ https://studio.datacult.com/  */
   }
 }
 
-
 /* * * * * * * * * * * * * * * 
 / Viz 2_5
 * * * * * * * * * * * * * * * */
@@ -664,18 +661,17 @@ https://studio.datacult.com/  */
 * * * * * * * * * * * * * * * */
 
 #viz_2_6 .vis-svg-container {
-  width: 100%
+  width: 100%;
 }
 
 #viz_2_6 {
-
   display: flex;
   height: auto;
   justify-content: center;
   gap: 10px;
   width: 100%;
-  height: 100%
-    /* Sets space between flex items */
+  height: 100%;
+  /* Sets space between flex items */
 }
 
 #viz_2_6_tooltip {
@@ -732,7 +728,6 @@ https://studio.datacult.com/  */
   align-items: center;
   justify-content: center;
   height: 100px;
-
 }
 
 #rotatingPhotos {
@@ -746,7 +741,7 @@ https://studio.datacult.com/  */
   align-items: center;
   justify-content: center;
   position: absolute;
-  width: 100%
+  width: 100%;
 }
 
 .image-container {
@@ -770,7 +765,7 @@ https://studio.datacult.com/  */
 
 .text-container {
   flex: 1;
-  font-size: .8rem;
+  font-size: 0.8rem;
   margin: 0;
   font-weight: 700;
   letter-spacing: 1px;
@@ -778,7 +773,6 @@ https://studio.datacult.com/  */
   overflow: hidden;
   white-space: normal;
 }
-
 
 .text-container hr {
   border: none;
@@ -788,12 +782,11 @@ https://studio.datacult.com/  */
   /* Adjust color as needed */
   margin: 4px 0;
   /* Adjust spacing around the line */
-
 }
 
 .text-container .artist-name {
   font-weight: normal;
-  font-size: 0.75rem
+  font-size: 0.75rem;
 }
 
 .text-container .date {
@@ -818,7 +811,7 @@ https://studio.datacult.com/  */
 }
 
 #viz_2_6_summary .legend text {
-  font-size: .8rem;
+  font-size: 0.8rem;
 }
 
 #viz_2_6_summary .month {
@@ -842,7 +835,7 @@ https://studio.datacult.com/  */
   font-family: Inter, sans-serif;
   font-feature-settings: "liga" 1, "calt" 1;
   display: flex;
-  align-items: end;
+  align-items: start;
   width: 90vw;
 }
 
@@ -867,6 +860,7 @@ https://studio.datacult.com/  */
   border-radius: 8px;
   box-shadow: 1px 1px 10px 8px rgb(0 0 0 / 6%);
   flex-basis: 40%;
+  margin-top: 50px;
 }
 
 #viz_2_8 .img_container {
@@ -888,7 +882,8 @@ https://studio.datacult.com/  */
   font-family: Inter, sans-serif;
 }
 
-#viz_2_8 .country, #viz_2_8 .flag {
+#viz_2_8 .country,
+#viz_2_8 .flag {
   font-size: 1rem;
 }
 
@@ -898,11 +893,11 @@ https://studio.datacult.com/  */
   }
 
   #viz_2_8 .vis-svg-container {
-    width: 100%
+    width: 100%;
   }
 
   #viz_2_8 #artist_info_container {
-    width: 100%
+    width: 100%;
   }
 
   #viz_2_8 .img_container {
@@ -910,11 +905,12 @@ https://studio.datacult.com/  */
     width: 35vw;
   }
 
-  #viz_2_8 .labels, #viz_2_8 .country, #viz_2_8 .flag {
+  #viz_2_8 .labels,
+  #viz_2_8 .country,
+  #viz_2_8 .flag {
     font-size: 2em;
   }
 }
-
 
 /* * * * * * * * * * * * * * * 
 / Viz 2_9
@@ -928,7 +924,8 @@ https://studio.datacult.com/  */
   font-size: 1.2rem;
 }
 
-#viz_2_9 .genre_text, #viz_2_9 .stage_text {
+#viz_2_9 .genre_text,
+#viz_2_9 .stage_text {
   font-size: 1rem;
 }
 
@@ -939,14 +936,13 @@ https://studio.datacult.com/  */
 }
 @media (min-width: 1980px) {
   #viz_2_9 .label {
-    font-size: .8rem;
+    font-size: 0.8rem;
   }
-  #viz_2_9 .genre_text, #viz_2_9 .stage_text {
-    font-size: .8rem;
+  #viz_2_9 .genre_text,
+  #viz_2_9 .stage_text {
+    font-size: 0.8rem;
   }
 }
-
-
 
 #viz_2_9 {
   width: 100%;
@@ -999,10 +995,12 @@ Bar
 
   align-items: center;
   padding: 16px;
-  background-image: linear-gradient(to right,
-      #f5f5f5 0%,
-      #f5f5f5 40%,
-      transparent 100%);
+  background-image: linear-gradient(
+    to right,
+    #f5f5f5 0%,
+    #f5f5f5 40%,
+    transparent 100%
+  );
   border-radius: 48px;
 
   /* width: 900px; Adjust as needed */
@@ -1170,10 +1168,12 @@ Bar
 
 @media (min-width: 760px) {
   #viz_2_9 .gradient-bar {
-    background-image: linear-gradient(to right,
-        #f5f5f5 0%,
-        #f5f5f5 10%,
-        transparent 100%);
+    background-image: linear-gradient(
+      to right,
+      #f5f5f5 0%,
+      #f5f5f5 10%,
+      transparent 100%
+    );
   }
 }
 
@@ -1211,10 +1211,12 @@ Bar
   #f5f5f5 0%,
   #f5f5f5 40%,
   transparent 100%); */
-  background-image: linear-gradient(to right,
-      #e4e0d8 0%,
-      #ebe8e0 20%,
-      transparent 100%);
+  background-image: linear-gradient(
+    to right,
+    #e4e0d8 0%,
+    #ebe8e0 20%,
+    transparent 100%
+  );
   border-radius: 50px;
 }
 
@@ -1272,13 +1274,12 @@ Bar
 }
 
 #viz_2_10 .flag {
-  margin-left: 5px
+  margin-left: 5px;
 }
 
 #viz_2_10 .tooltip__artwork {
   margin-right: 5px;
 }
-
 
 #viz_2_10 .tooltip__artwork_img {
   border-radius: 5%;
@@ -1297,7 +1298,6 @@ Bar
   /* gap: 7.558px; */
   text-wrap: nowrap;
   margin: 0px 10px;
-
 }
 
 #viz_2_10 .map-tooltip__artist {
@@ -1438,26 +1438,33 @@ Bar
   }
 }
 
-#viz_2_1_tooltip, #viz_2_14_tooltip, #viz_2_15_tooltip {
+#viz_2_1_tooltip,
+#viz_2_14_tooltip,
+#viz_2_15_tooltip {
   padding: 5px;
   border-radius: 5px;
   background-color: #fff;
 }
 
-#viz_2_1_tooltip_image, #viz_2_14_tooltip_image, #viz_2_15_tooltip_image {
+#viz_2_1_tooltip_image,
+#viz_2_14_tooltip_image,
+#viz_2_15_tooltip_image {
   border-radius: 5px;
   width: 150px;
   height: auto;
-
 }
 
-#viz_2_1_tooltip_image, #viz_2_14_tooltip_subtitle, #viz_2_15_tooltip_subtitle {
+#viz_2_1_tooltip_image,
+#viz_2_14_tooltip_subtitle,
+#viz_2_15_tooltip_subtitle {
   font-size: 0.7em;
   color: grey;
   margin-bottom: 5px;
 }
 
-#viz_2_1_tooltip_title, #viz_2_14_tooltip_title, #viz_2_15_tooltip_title {
+#viz_2_1_tooltip_title,
+#viz_2_14_tooltip_title,
+#viz_2_15_tooltip_title {
   max-width: 150px;
 }
 
@@ -1468,7 +1475,6 @@ Bar
 /* * * * * * * * * * * * * * * 
 / Viz 2_19 / single values
 * * * * * * * * * * * * * * * */
-
 
 #viz_2_19 {
   position: relative;

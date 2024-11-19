@@ -4,7 +4,7 @@
 
 // Description: bump chart and artist summary call out DIV
 
-import { artistinfo } from "./artist_info.js";
+import { artistinfo } from "./artist_info_slope.js";
 
 export function viz_2_8_slope(data, map, options) {
   ////////////////////////////////////////
@@ -21,12 +21,13 @@ export function viz_2_8_slope(data, map, options) {
 
   // merge default mapping with user mapping
   map = { ...mapping, ...map };
+  console.log("map", map);
 
   let defaults = {
     selector: "#vis",
     width: 1200,
     height: 600,
-    margin: { top: 20, right: 20, bottom: 30, left: 50 },
+    margin: { top: 50, right: 40, bottom: 20, left: 50 },
     transition: 400,
     delay: 100,
     fill: "#69b3a2",
@@ -151,6 +152,8 @@ export function viz_2_8_slope(data, map, options) {
     return accumulator;
   }, []);
 
+  console.log("firstAppearance", firstAppearance);
+
   ////////////////////////////////////////
   ////////////// Scales //////////////////
   ////////////////////////////////////////
@@ -228,6 +231,7 @@ export function viz_2_8_slope(data, map, options) {
       .attr("x", (d) => xScale(d[map.x]) - options.imageSize / 2)
       .attr("y", (d) => yScale(d[map.y] - 0.5) - options.imageSize / 2)
       .style("outline", options.imageSize * 0.1 + "px solid white")
+      .style("cursor", "pointer")
       .classed("artist_images", true)
       .on("click", function (event, d) {
         options.focus = d[map.group];
@@ -269,10 +273,11 @@ export function viz_2_8_slope(data, map, options) {
     .data([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
     .join("text")
     .attr("class", "position_labels")
-    .attr("x", -30)
+    .attr("x", width)
+    .attr("dx", 10)
     .attr("y", (d) => yScale(d - 0.5))
     .attr("dominant-baseline", "middle")
-    .attr("text-anchor", "end")
+    .attr("text-anchor", "middle")
     .text((d) => d);
 
   ////////////////////////////////////////
@@ -281,8 +286,16 @@ export function viz_2_8_slope(data, map, options) {
 
   const xAxis = svg
     .append("g")
-    .attr("transform", `translate(0,${height})`)
-    .call(d3.axisBottom(xScale));
+    // .attr("transform", `translate(0,${height})`)
+    .call(d3.axisTop(xScale));
+
+  // remove axis line and tick lines
+  xAxis.selectAll(".domain,.tick>line").remove();
+  // move tick text up
+  xAxis
+    .selectAll(".tick>text")
+    .attr("dominant-baseline", "middle")
+    .attr("dy", -20);
 
   ////////////////////////////////////////
   ////////////// Update //////////////////
