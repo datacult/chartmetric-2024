@@ -13,6 +13,7 @@ import { viz_2_3 } from "./2_3.js";
 import { viz_2_6 } from "./2_6.js";
 import { cluster } from "./cluster.js";
 // import { viz_2_8 } from "./2_8.js";
+import { viz_2_8_slope } from "./2_8_slope.js";
 import { viz_2_9 } from "./2_9.js";
 // import { gradientBarMapComponent } from "./2_10_gradientBar.js";
 // import { viz_2_13 } from "./2_13.js";
@@ -324,6 +325,38 @@ import { viz_2_9 } from "./2_9.js";
     //     }
     //   },
     // },
+    viz_2_8_slope: {
+      viz: null,
+      data: [],
+      pending_data_update: false,
+      options: {
+        selector: "#viz_2_8_slope",
+        fill: "#1781F7",
+        stroke: "black",
+        focus: "Drake",
+      },
+      mapping: {
+        x: "YEAR", // 'MONTH_LABEL'
+        y: "RANK", // 'MONTHLY_ARTIST_RANK',
+        group: "NAME",
+        sort: "CM_SCORE", // 'SCORE_MONTH',
+        title: "NAME",
+        location: "ARTIST_HOME_COUNTRY",
+        type: "ARTIST_TYPE",
+        artist_image: "IMAGE_URL",
+        pronouns: "PRONOUN",
+        flag: "COUNTRY_CODE",
+        months_in_top_10: "MONTHS_IN_TOP_10",
+      },
+      params: [],
+      update: function (param) {
+        if (param !== undefined && param !== null) {
+          this.viz.update(null, param);
+        } else {
+          this.viz.update(this.data);
+        }
+      },
+    },
     viz_2_9: {
       viz: null,
       data: [],
@@ -738,6 +771,14 @@ import { viz_2_9 } from "./2_9.js";
             //   );
             //   observer.disconnect();
             // }
+            if (viz == "viz_2_8_slope") {
+              visuals.viz_2_8_slope.viz = viz_2_8_slope(
+                visuals.viz_2_8_slope.data,
+                visuals.viz_2_8_slope.mapping,
+                visuals.viz_2_8_slope.options
+              );
+              observer.disconnect();
+            }
             if (viz == "viz_2_9") {
               visuals.viz_2_9.viz = viz_2_9(
                 visuals.viz_2_9.data,
