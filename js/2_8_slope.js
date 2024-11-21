@@ -18,6 +18,8 @@ export function viz_2_8_slope(data, map, options) {
     group: "group",
     artist_image: null,
     sort: null,
+    rank_current: "rank_current",
+    rank_previous: "rank_previous",
   };
 
   // merge default mapping with user mapping
@@ -26,16 +28,18 @@ export function viz_2_8_slope(data, map, options) {
   let defaults = {
     selector: "#vis",
     width: 1200,
-    height: 600,
+    height: 900,
     margin: { top: 50, right: 40, bottom: 20, left: 50 },
     transition: 400,
     delay: 100,
     fill: "#69b3a2",
-    stroke: "#000",
+    stroke: "#fff",
+    strokeWidth: 4,
     padding: 0.1,
     opacity: 0.3,
     focus: null,
-    imageSize: 40,
+    imageSize: 30,
+    limitYscale: 30,
   };
 
   // merge default options with user options
@@ -81,6 +85,9 @@ export function viz_2_8_slope(data, map, options) {
   ////////////// Transform ///////////////
   ////////////////////////////////////////
 
+  // sort data by sort column (YEAR)
+  data = d3.sort(data, (a, b) => d3.ascending(a[map.sort], b[map.sort]));
+
   // Assuming `data` is your array of objects from the CSV
   const uniqueMonths = [
     ...new Set(
@@ -99,9 +106,12 @@ export function viz_2_8_slope(data, map, options) {
   data.forEach((item) => {
     if (!artistsInfo[item[map.group]]) {
       artistsInfo[item[map.group]] = item;
-      //   artistsInfo[item[map.group]].MONTHS_IN_TOP_10 = data.filter(
-      //     (d) => d[map.group] === item[map.group]
-      //   ).length;
+      artistsInfo[item[map.group]][map.rank_previous] = data
+        .filter((d) => d[map.group] === item[map.group])
+        .find((d) => d[map.x] === 2023).RANK;
+      artistsInfo[item[map.group]][map.rank_current] = data
+        .filter((d) => d[map.group] === item[map.group])
+        .find((d) => d[map.x] === 2024).RANK;
     }
   });
 
@@ -163,7 +173,13 @@ export function viz_2_8_slope(data, map, options) {
 
   const yScale = d3
     .scaleLinear()
-    .domain([0, d3.max(data, (d) => d[map.y])])
+    .domain([
+      0,
+      Math.min(
+        options.limitYscale,
+        d3.max(data, (d) => d[map.y])
+      ),
+    ])
     .range([0, height]);
 
   const colorScale = d3
@@ -194,21 +210,15 @@ export function viz_2_8_slope(data, map, options) {
     .join("path")
     .attr("d", (d) => area(d.values))
     .attr("fill", (d, i) => colorScale(i))
+    .attr("stroke", options.stroke)
+    .attr("stroke-width", options.strokeWidth)
     .attr("opacity", options.opacity)
     .style("cursor", "pointer")
-    .on("click", function (event, d) {
+    .on("mouseover", function (event, d) {
       options.focus = d.name;
       info.update([artistsInfo[d.name]]);
       paths.attr("opacity", (x) =>
         options.focus == x.name ? 1 : options.opacity
-      );
-    })
-    .on("mouseover", function (event, d) {
-      d3.select(this).attr("opacity", (x) =>
-        options.focus == x.name ? 1 : 0.7
-      );
-      paths.style("cursor", (d) =>
-        d.name != options.focus ? "pointer" : "default"
       );
     })
     .on("mouseout", function (event, d) {
@@ -274,7 +284,7 @@ export function viz_2_8_slope(data, map, options) {
     .attr("x", width)
     .attr("dx", 10)
     .attr("y", (d) => yScale(d - 0.5))
-    .attr("dominant-baseline", "middle")
+    .attr("dominant-baseline", "central")
     .attr("text-anchor", "middle")
     .text((d) => d);
 

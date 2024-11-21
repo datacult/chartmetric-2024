@@ -27,29 +27,24 @@ https://studio.datacult.com/ -->
 
     (async () => {
 
-        // TODO: remove hard coded data, but instead pull from S3
-        // let data = await d3.csv('https://share.chartmetric.com/year-end-report/2023/viz_2_8_en.csv', d3.autoType)
-        let data = await d3.csv('../assets/viz_2_8_en_2024.csv', d3.autoType)
-
+        let data = await d3.csv('https://share.chartmetric.com/year-end-report/2024/viz_2_8_en.csv', d3.autoType)
 
         let mapping = {
             x: 'YEAR', // 'MONTH_LABEL'
             y: 'RANK', // 'MONTHLY_ARTIST_RANK',
             group: 'NAME',
-            sort:  'CM_SCORE', // 'SCORE_MONTH',
+            sort:  'YEAR', // 'SCORE_MONTH',
             title: 'NAME',
             location: 'COUNTRY', //'ARTIST_HOME_COUNTRY',
             type: "BAND", // 'ARTIST_TYPE',
             artist_image: 'IMAGE_URL',
             pronouns: 'PRONOUN',
-            flag:"COUNTRY_CODE", // TODO: add once existing
+            flag:"COUNTRY_CODE",
         }
 
         let options = {
             selector: '#viz_2_8',
-            fill: "#1781F7",
-            stroke: "black",
-            focus: "Taylor Swift"
+            focus: "Bruno Mars",
         }
 
         let bump = viz_2_8_slope(data, mapping, options)

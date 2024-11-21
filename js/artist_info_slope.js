@@ -14,7 +14,8 @@ export function artistinfo(data, map, options) {
     pronouns: "pronouns",
     type: "type",
     artist_image: "artist_image",
-    // months: 'months_in_top_10'
+    rank_previous: "rank_previous",
+    rank_previous: "rank_previous",
   };
 
   // merge default mapping with user mapping
@@ -53,8 +54,7 @@ export function artistinfo(data, map, options) {
 
   const pronouns_div = text_container.append("div").classed("pronouns", true);
 
-  // const top_10_div = text_container.append('div')
-  //   .classed('rank_history', true);
+  const rank_div = text_container.append("div").classed("rank_history", true);
 
   ////////////////////////////////////////
   ////////////// Data Setup ///////////////
@@ -93,11 +93,16 @@ export function artistinfo(data, map, options) {
     .join("p")
     .text((d) => `${d[map.pronouns]}, ${d[map.type]}`);
 
-  // const months_in_top_10 = top_10_div
-  //   .selectAll('p')
-  //   .data(data)
-  //   .join('p')
-  //   .text(d => `Months in Top 10: ${d[map.months_in_top_10]}`);
+  const ranks = rank_div
+    .selectAll("p")
+    .data(data)
+    .join("p")
+    .text(
+      (d) =>
+        `From rank ${d[map.rank_previous]} in 2023 to rank ${
+          d[map.rank_current]
+        } in 2024`
+    );
 
   ////////////////////////////////////////
   ////////////// Update //////////////////
@@ -129,9 +134,14 @@ export function artistinfo(data, map, options) {
       .data(data)
       .text((d) => `${d[map.pronouns]}, ${d[map.type] ? "Solo" : "Band"}`);
 
-    // months_in_top_10
-    //   .data(data)
-    //   .text(d => `Months in Top 10: ${d[map.months_in_top_10]}`);
+    ranks
+      .data(data)
+      .text(
+        (d) =>
+          `From rank ${d[map.rank_previous]} in 2023 to rank ${
+            d[map.rank_current]
+          } in 2024`
+      );
   }
 
   return {
