@@ -852,6 +852,7 @@ https://studio.datacult.com/  */
 }
 #viz_2_8 text.year_labels {
   font-size: 32px;
+  font-weight: bold;
 }
 #viz_2_8 path {
   transition: opacity 0.3s;
