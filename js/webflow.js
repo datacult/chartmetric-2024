@@ -325,7 +325,8 @@ import { viz_2_9 } from "./2_9.js";
     //     }
     //   },
     // },
-    viz_2_8_slope: {
+    /*** viz 2_8 as slope chart */
+    viz_2_8: {
       viz: null,
       data: [],
       pending_data_update: false,
@@ -333,18 +334,19 @@ import { viz_2_9 } from "./2_9.js";
         selector: "#viz_2_8",
         focus: "Bruno Mars",
         limitYscale: 30,
+        stroke: "white",
       },
       mapping: {
-        x: "YEAR", // 'MONTH_LABEL'
-        y: "RANK", // 'MONTHLY_ARTIST_RANK',
+        x: "YEAR",
+        y: "RANK",
         group: "NAME",
-        sort: "CM_SCORE", // 'SCORE_MONTH',
+        sort: "CM_SCORE",
         title: "NAME",
-        location: "COUNTRY", //'ARTIST_HOME_COUNTRY',
-        type: "BAND", // 'ARTIST_TYPE',
+        location: "COUNTRY",
+        type: "BAND",
         artist_image: "IMAGE_URL",
         pronouns: "PRONOUN",
-        flag: "COUNTRY_CODE", // TODO: add once existing
+        flag: "COUNTRY_CODE",
       },
       params: [],
       update: function (param) {
@@ -769,11 +771,11 @@ import { viz_2_9 } from "./2_9.js";
             //   );
             //   observer.disconnect();
             // }
-            if (viz == "viz_2_8_slope") {
-              visuals.viz_2_8_slope.viz = viz_2_8_slope(
-                visuals.viz_2_8_slope.data,
-                visuals.viz_2_8_slope.mapping,
-                visuals.viz_2_8_slope.options
+            if (viz == "viz_2_8") {
+              visuals.viz_2_8.viz = viz_2_8_slope(
+                visuals.viz_2_8.data,
+                visuals.viz_2_8.mapping,
+                visuals.viz_2_8.options
               );
               observer.disconnect();
             }
