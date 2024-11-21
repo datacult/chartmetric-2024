@@ -29,7 +29,7 @@ export function viz_2_8_slope(data, map, options) {
     selector: "#vis",
     width: 1200,
     height: 900,
-    margin: { top: 50, right: 40, bottom: 20, left: 50 },
+    margin: { top: 60, right: 40, bottom: 20, left: 50 },
     transition: 400,
     delay: 100,
     fill: "#69b3a2",
@@ -292,10 +292,7 @@ export function viz_2_8_slope(data, map, options) {
   //////////////// Axis //////////////////
   ////////////////////////////////////////
 
-  const xAxis = svg
-    .append("g")
-    // .attr("transform", `translate(0,${height})`)
-    .call(d3.axisTop(xScale));
+  const xAxis = svg.append("g").call(d3.axisTop(xScale));
 
   // remove axis line and tick lines
   xAxis.selectAll(".domain,.tick>line").remove();
@@ -303,7 +300,8 @@ export function viz_2_8_slope(data, map, options) {
   xAxis
     .selectAll(".tick>text")
     .attr("dominant-baseline", "middle")
-    .attr("dy", -20);
+    .attr("dy", -30)
+    .classed("year_labels", true);
 
   ////////////////////////////////////////
   ////////////// Update //////////////////

@@ -846,6 +846,13 @@ https://studio.datacult.com/  */
 #viz_2_8 text {
   font-size: 18px;
 }
+
+#viz_2_8 text.position_labels {
+  font-size: 20px;
+}
+#viz_2_8 text.year_labels {
+  font-size: 32px;
+}
 #viz_2_8 path {
   transition: opacity 0.3s;
 }
