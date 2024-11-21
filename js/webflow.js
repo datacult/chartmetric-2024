@@ -331,9 +331,8 @@ import { viz_2_9 } from "./2_9.js";
       pending_data_update: false,
       options: {
         selector: "#viz_2_8",
-        fill: "#1781F7",
-        stroke: "black",
-        focus: "Taylor Swift",
+        focus: "Bruno Mars",
+        limitYscale: 30,
       },
       mapping: {
         x: "YEAR", // 'MONTH_LABEL'
@@ -551,22 +550,6 @@ import { viz_2_9 } from "./2_9.js";
     await Promise.all(
       Object.keys(visuals).map((viz) => {
         if (loadVisualCheck[viz] == true) {
-          // TODO: remove hard coded data for 2_8_slope
-          if (viz == "viz_2_8_slope") {
-            console.log("viz_2_8_slope extra data", viz, lan);
-            return d3
-              .csv(
-                "https://datacult.github.io/chartmetric-2024/assets/viz_2_8_en_2024.csv",
-                d3.autoType
-              )
-              .then((data) => {
-                return { name: viz, data: data };
-              })
-              .catch((error) => {
-                return null;
-              });
-          }
-
           return d3
             .csv(
               `https://share.chartmetric.com/year-end-report/2024/${viz}_${lan}.csv`,
