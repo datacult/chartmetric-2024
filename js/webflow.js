@@ -334,7 +334,7 @@ import { viz_2_9 } from "./2_9.js";
         selector: "#viz_2_8",
         focus: "Bruno Mars",
         limitYscale: 30,
-        stroke: "white",
+        stroke: "#f5f4f0",
       },
       mapping: {
         x: "YEAR",
