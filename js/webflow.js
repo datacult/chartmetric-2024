@@ -556,6 +556,35 @@ import { viz_2_9 } from "./2_9.js";
         }
       },
     },
+    viz_2_21: {
+      viz: null,
+      data: [],
+      pending_data_update: false,
+      options: {
+        selector: "#viz_2_21",
+        filter: "All Countries",
+      },
+      mapping: {
+        label: "ARTIST_NAME",
+        y: "COUNTRY_RANK",
+        x: "CM_SCORE",
+        image: "IMAGE_URL",
+        filter: "COUNTRY_NAME",
+        stage: "ARTIST_STAGE",
+        sort: "COUNTRY_RANK",
+        genre: "ARTIST_GENRES",
+        country: "COUNTRY_NAME",
+      },
+      params: [],
+      update: function (param) {
+        if (param !== undefined && param !== null) {
+          this.options.filter = param;
+          this.viz.update(null, null, this.options);
+        } else {
+          this.viz.update(this.data);
+        }
+      },
+    },
   };
 
   const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
@@ -585,6 +614,21 @@ import { viz_2_9 } from "./2_9.js";
             return d3
               .csv(
                 `https://datacult.github.io/chartmetric-2024/assets/viz_2_20_en.csv`,
+                d3.autoType
+              )
+              .then((data) => {
+                return { name: viz, data: data };
+              })
+              .catch((error) => {
+                return null;
+              });
+          }
+
+          // TODO: change data to real data URL from viz 2_21 instead of 2_9
+          if (viz == "viz_2_21") {
+            return d3
+              .csv(
+                `https://share.chartmetric.com/year-end-report/2024/viz_2_9_en.csv`,
                 d3.autoType
               )
               .then((data) => {
@@ -689,6 +733,7 @@ import { viz_2_9 } from "./2_9.js";
   if (platformDropdownContainer)
     platformDropdownContainer.appendChild(platformDropdown);
 
+  // country dropdown for 2_9 (top artists)
   let countryDropdownSpan = document.createElement("span");
   countryDropdownSpan.classList.add("arrow");
 
@@ -711,6 +756,30 @@ import { viz_2_9 } from "./2_9.js";
 
   if (countryDropdownContainer)
     countryDropdownContainer.appendChild(contryDropdown);
+
+  // country dropdown for 2_21 (top genre)
+  let countryDropdownSpan21 = document.createElement("span");
+  countryDropdownSpan21.classList.add("arrow");
+
+  let countryDropdownContainer21 = document.querySelector("#dropdown-2_21");
+  let contryDropdown21 = document.createElement("select");
+  contryDropdown21.appendChild(countryDropdownSpan);
+
+  let countries21 = visuals.viz_2_21.data.sort((a, b) =>
+    d3.ascending(a.COUNTRY_NAME, b.COUNTRY_NAME)
+  );
+  countries21 = Array.from(new Set(countries21.map((d) => d.COUNTRY_NAME)));
+
+  visuals.viz_2_21.params = countries21;
+
+  countries21.forEach((country) => {
+    let option = document.createElement("option");
+    option.text = country;
+    contryDropdown21.add(option);
+  });
+
+  if (countryDropdownContainer21)
+    countryDropdownContainer21.appendChild(contryDropdown21);
 
   ////////////////////////////////
   /////// load visuals ///////////
@@ -880,6 +949,14 @@ import { viz_2_9 } from "./2_9.js";
                 visuals.viz_2_20.data,
                 visuals.viz_2_20.mapping,
                 visuals.viz_2_20.options
+              );
+              observer.disconnect();
+            }
+            if (viz == "viz_2_21") {
+              visuals.viz_2_21.viz = viz_2_9(
+                visuals.viz_2_21.data,
+                visuals.viz_2_21.mapping,
+                visuals.viz_2_21.options
               );
               observer.disconnect();
             }

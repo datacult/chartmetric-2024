@@ -7,7 +7,6 @@
 import { artistinfo } from "./artist_info_slope.js";
 
 export function viz_2_8_slope(data, map, options) {
-  console.log("viz_2_8_slope", data, map, options);
   ////////////////////////////////////////
   /////////////// Defaults ///////////////
   ////////////////////////////////////////
