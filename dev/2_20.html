@@ -1,0 +1,46 @@
+<!-- © 2024 Data Culture
+Released under the ISC license.
+https://studio.datacult.com/ -->
+
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../style/webflow.css">
+<body>
+    <div id="vis">
+    </div>
+
+</body>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+
+</html>
+
+<script type="module">
+    import {cluster} from '../js/cluster.js';
+    // TODO: replace hard coded data with real data URL
+    // let data = await d3.csv('https://share.chartmetric.com/year-end-report/2024/viz_2_7_en.csv', d3.autoType)
+    let data = await d3.csv('https://datacult.github.io/chartmetric-2024/assets/viz_2_20_en.csv', d3.autoType)
+
+    let mapping = {
+        size: "ARTIST_COUNT",
+        label: "ARTIST_GENDER",
+        fill: "ARTIST_GENDER",
+        value: "PCT_GENDER"
+    }
+
+    let options = {
+        selector: "#vis",
+        stroke: "white",
+        format: (d) => {
+            return Math.floor(d * 100) > 0 ? d3.format(".0%")(d) : d3.format(".1r")(d * 100) + "%"
+        }
+    }
+
+    let vis = cluster(data, mapping, options);
+
+</script>

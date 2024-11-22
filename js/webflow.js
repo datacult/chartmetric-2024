@@ -528,6 +528,34 @@ import { viz_2_9 } from "./2_9.js";
     //         }
     //     },
     // },
+    viz_2_20: {
+      viz: null,
+      data: [],
+      pending_data_update: false,
+      options: {
+        selector: "#viz_2_20",
+        stroke: "white",
+        format: (d) => {
+          return Math.floor(d * 100) > 0
+            ? d3.format(".0%")(d)
+            : d3.format(".1r")(d * 100) + "%";
+        },
+      },
+      mapping: {
+        size: "ARTIST_COUNT",
+        label: "ARTIST_GENDER",
+        fill: "ARTIST_GENDER",
+        value: "PCT_GENDER",
+      },
+      params: ["start"],
+      update: function (param) {
+        if (param !== undefined && param !== null) {
+          this.viz.update();
+        } else {
+          this.viz.update(this.data);
+        }
+      },
+    },
   };
 
   const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
@@ -552,6 +580,21 @@ import { viz_2_9 } from "./2_9.js";
     await Promise.all(
       Object.keys(visuals).map((viz) => {
         if (loadVisualCheck[viz] == true) {
+          // TODO: replace hard coded data with real data URL
+          if (viz == "viz_2_20") {
+            return d3
+              .csv(
+                `https://datacult.github.io/chartmetric-2024/assets/viz_2_20_en.csv`,
+                d3.autoType
+              )
+              .then((data) => {
+                return { name: viz, data: data };
+              })
+              .catch((error) => {
+                return null;
+              });
+          }
+
           return d3
             .csv(
               `https://share.chartmetric.com/year-end-report/2024/${viz}_${lan}.csv`,
@@ -832,6 +875,14 @@ import { viz_2_9 } from "./2_9.js";
             //   );
             //   observer.disconnect();
             // }
+            if (viz == "viz_2_20") {
+              visuals.viz_2_20.viz = cluster(
+                visuals.viz_2_20.data,
+                visuals.viz_2_20.mapping,
+                visuals.viz_2_20.options
+              );
+              observer.disconnect();
+            }
             console.log("visual loaded: ", viz);
           }
         });
