@@ -4,7 +4,7 @@
 
 // Description: vertical bar chart with slide in tooltip
 
-export function viz_2_9(data, map, options, svg) {
+export function top_list(data, map, options, svg) {
   ////////////////////////////////////////
   /////////////// Defaults ///////////////
   ////////////////////////////////////////

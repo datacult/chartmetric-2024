@@ -14,7 +14,7 @@ import { viz_2_6 } from "./2_6.js";
 import { cluster } from "./cluster.js";
 // import { viz_2_8 } from "./2_8.js";
 import { viz_2_8_slope } from "./2_8_slope.js";
-import { viz_2_9 } from "./2_9.js";
+import { top_list } from "./top_list.js";
 // import { gradientBarMapComponent } from "./2_10_gradientBar.js";
 // import { viz_2_13 } from "./2_13.js";
 // import { viz_2_11 } from "./2_11.js";
@@ -892,7 +892,7 @@ import { viz_2_9 } from "./2_9.js";
               observer.disconnect();
             }
             if (viz == "viz_2_9") {
-              visuals.viz_2_9.viz = viz_2_9(
+              visuals.viz_2_9.viz = top_list(
                 visuals.viz_2_9.data,
                 visuals.viz_2_9.mapping,
                 visuals.viz_2_9.options
@@ -953,7 +953,7 @@ import { viz_2_9 } from "./2_9.js";
               observer.disconnect();
             }
             if (viz == "viz_2_21") {
-              visuals.viz_2_21.viz = viz_2_9(
+              visuals.viz_2_21.viz = top_list(
                 visuals.viz_2_21.data,
                 visuals.viz_2_21.mapping,
                 visuals.viz_2_21.options
