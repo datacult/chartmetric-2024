@@ -20,7 +20,7 @@ export function calendarsummary(data, map, options) {
     selector: "#vis",
     width: 900,
     height: 500,
-    margin: { top: 10, right: 20, bottom: 30, left: 100 },
+    margin: { top: 10, right: 20, bottom: 30, left: 50 },
     transition: 400,
     delay: 100,
     padding: 0.25,
@@ -89,6 +89,16 @@ export function calendarsummary(data, map, options) {
       `translate(${options.margin.left},${options.margin.top})`
     );
 
+  barChartSvg
+    .selectAll("rect")
+    .data(data)
+    .join("rect")
+    .attr("x", (d) => xScale(d[map.date]))
+    .attr("y", (d) => yScale(d[map.y]))
+    .attr("width", xScale.bandwidth())
+    .attr("height", (d) => height - yScale(d[map.y]))
+    .attr("fill", (d) => colorScale(d[map.fill]));
+
   const xAxis = barChartSvg
     .append("g")
     .attr("transform", `translate(0,${height})`)
@@ -110,20 +120,19 @@ export function calendarsummary(data, map, options) {
     }
   });
 
-  // remove the ticks from the y-axis
-  yAxis.selectAll("line").remove();
   // remove the y-axis line
   yAxis.select(".domain").remove();
 
-  barChartSvg
-    .selectAll("rect")
-    .data(data)
-    .join("rect")
-    .attr("x", (d) => xScale(d[map.date]))
-    .attr("y", (d) => yScale(d[map.y]))
-    .attr("width", xScale.bandwidth())
-    .attr("height", (d) => height - yScale(d[map.y]))
-    .attr("fill", (d) => colorScale(d[map.fill]));
+  // change ticks on y axis to span the whole width of the chart
+  yAxis
+    .selectAll("line")
+    .attr("x2", width)
+    .attr("stroke", "#fff")
+    .attr("stroke-dasharray", "2")
+    .attr("stroke-opacity", 0.5);
+
+  // remove tick line for zero
+  yAxis.select(".tick").select("line").remove();
 
   ////////////////////////////////////////
   ////////////// Update //////////////////
