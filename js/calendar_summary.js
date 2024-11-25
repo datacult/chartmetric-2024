@@ -39,10 +39,10 @@ export function calendarsummary(data, map, options) {
 
   const barChartContainer = div.append("div").classed("bar-chart", true);
 
-  const title = document.createElement("h2");
-  title.innerText = "Monthly Track Release Count";
+  // const title = document.createElement("h2");
+  // title.innerText = "Monthly Track Release Count";
 
-  barChartContainer.append(() => title);
+  // barChartContainer.append(() => title);
 
   ////////////////////////////////////////
   ////////////// Helpers /////////////////
@@ -77,8 +77,12 @@ export function calendarsummary(data, map, options) {
 
   const barChartSvg = barChartContainer
     .append("svg")
-    .attr("width", width + options.margin.left + options.margin.right)
-    .attr("height", height + options.margin.top + options.margin.bottom)
+    .attr(
+      "viewBox",
+      `0 0 ${width + options.margin.left + options.margin.right} ${
+        height + options.margin.top + options.margin.bottom
+      }`
+    )
     .append("g")
     .attr(
       "transform",
