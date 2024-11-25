@@ -793,37 +793,17 @@ https://studio.datacult.com/  */
   text-transform: uppercase;
 }
 
-#viz_2_6 .month-text-2-6 {
-  font-size: 14px;
-  transform: translateX(-1%);
-}
-
-#viz_2_6_summary .legend {
-  max-width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  padding-left: 1.2rem;
-}
-
-#viz_2_6_summary .legend svg {
+#viz_2_6_summary .bar-chart svg {
   max-width: 100%;
 }
 
-#viz_2_6_summary .legend text {
-  font-size: 0.8rem;
-}
-
-#viz_2_6_summary .month {
-  width: 30% !important;
+#viz_2_6_summary .bar-chart text {
+  font-size: 1rem;
 }
 
 @media (max-width: 568px) {
   #viz_2_6_summary {
     font-size: 2.3em;
-  }
-  #viz_2_6_summary .month {
-    width: 46% !important;
   }
 }
 

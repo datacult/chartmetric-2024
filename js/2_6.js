@@ -71,6 +71,7 @@ export function viz_2_6(data, map, options) {
       fill: "MONTHLY_TRACK_RELEASE_COUNT",
       date: "RELEASE_MONTH",
       label: "MONTHLY_TRACK_RELEASE_COUNT",
+      y: "MONTHLY_TRACK_RELEASE_COUNT",
     };
 
     if (!d3.select(options.selector + "_summary").empty()) {
@@ -305,7 +306,7 @@ export function viz_2_6(data, map, options) {
   svg.selectAll(".tick line").remove();
 
   d3.csv(
-    "https://share.chartmetric.com/year-end-report/2024/viz_2_6_1_en.csv", // TODO: update with 2024 data
+    "https://share.chartmetric.com/year-end-report/2024/viz_2_6_1_en.csv",
     d3.autoType
   ).then((photoData) => {
     // Process the data
