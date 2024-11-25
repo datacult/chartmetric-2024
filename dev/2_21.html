@@ -26,7 +26,7 @@ https://studio.datacult.com/ -->
 
 </html>
 <script type="module">
-    import { viz_2_9 } from '../js/2_9.js';
+    import { top_list } from '../js/top_list.js';
 
     (async () => {
         let data = await d3.csv('https://share.chartmetric.com/year-end-report/2024/viz_2_9_en.csv', d3.autoType)
@@ -49,7 +49,7 @@ https://studio.datacult.com/ -->
             filter: "All Countries"
         }
 
-        let chart = viz_2_9(data, mapping, options)
+        let chart = top_list(data, mapping, options)
 
         setTimeout(() => {
             options.filter = "United States"

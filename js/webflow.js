@@ -609,21 +609,6 @@ import { top_list } from "./top_list.js";
     await Promise.all(
       Object.keys(visuals).map((viz) => {
         if (loadVisualCheck[viz] == true) {
-          // TODO: replace hard coded data with real data URL
-          if (viz == "viz_2_20") {
-            return d3
-              .csv(
-                `https://datacult.github.io/chartmetric-2024/assets/viz_2_20_en.csv`,
-                d3.autoType
-              )
-              .then((data) => {
-                return { name: viz, data: data };
-              })
-              .catch((error) => {
-                return null;
-              });
-          }
-
           // TODO: change data to real data URL from viz 2_21 instead of 2_9
           if (viz == "viz_2_21") {
             return d3

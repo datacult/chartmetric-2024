@@ -22,9 +22,8 @@ https://studio.datacult.com/ -->
 
 <script type="module">
     import {cluster} from '../js/cluster.js';
-    // TODO: replace hard coded data with real data URL
-    // let data = await d3.csv('https://share.chartmetric.com/year-end-report/2024/viz_2_7_en.csv', d3.autoType)
-    let data = await d3.csv('https://datacult.github.io/chartmetric-2024/assets/viz_2_20_en.csv', d3.autoType)
+    
+    let data = await d3.csv('https://share.chartmetric.com/year-end-report/2024/viz_2_20_en.csv', d3.autoType)
 
     let mapping = {
         size: "ARTIST_COUNT",
