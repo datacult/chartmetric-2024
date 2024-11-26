@@ -18,7 +18,8 @@ import { top_list } from "./top_list.js";
 // import { gradientBarMapComponent } from "./2_10_gradientBar.js";
 // import { viz_2_13 } from "./2_13.js";
 // import { viz_2_11 } from "./2_11.js";
-// import { viz_2_19 } from "./2_19.js";
+import { viz_2_21 } from "./2_21.js";
+
 (async () => {
   // hold data and vizualization instance in one object
   // all update functions should take the data as the first argument
@@ -562,18 +563,18 @@ import { top_list } from "./top_list.js";
       pending_data_update: false,
       options: {
         selector: "#viz_2_21",
-        filter: "All Countries",
+        filter: "pop",
       },
       mapping: {
-        label: "ARTIST_NAME",
-        y: "COUNTRY_RANK",
-        x: "CM_SCORE",
-        image: "IMAGE_URL",
-        filter: "COUNTRY_NAME",
-        stage: "ARTIST_STAGE",
-        sort: "COUNTRY_RANK",
-        genre: "ARTIST_GENRES",
-        country: "COUNTRY_NAME",
+        label: "country",
+        y: "rank",
+        x: "total_avg_pct_share",
+        image: null,
+        filter: "genre",
+        stage: "total_instagram_followers",
+        sort: "rank",
+        genre: "total_youtube_followers",
+        country: "genre",
       },
       params: [],
       update: function (param) {
@@ -609,21 +610,6 @@ import { top_list } from "./top_list.js";
     await Promise.all(
       Object.keys(visuals).map((viz) => {
         if (loadVisualCheck[viz] == true) {
-          // TODO: change data to real data URL from viz 2_21 instead of 2_9
-          if (viz == "viz_2_21") {
-            return d3
-              .csv(
-                `https://share.chartmetric.com/year-end-report/2024/viz_2_9_en.csv`,
-                d3.autoType
-              )
-              .then((data) => {
-                return { name: viz, data: data };
-              })
-              .catch((error) => {
-                return null;
-              });
-          }
-
           return d3
             .csv(
               `https://share.chartmetric.com/year-end-report/2024/${viz}_${lan}.csv`,
@@ -742,29 +728,29 @@ import { top_list } from "./top_list.js";
   if (countryDropdownContainer)
     countryDropdownContainer.appendChild(contryDropdown);
 
-  // country dropdown for 2_21 (top genre)
-  let countryDropdownSpan21 = document.createElement("span");
-  countryDropdownSpan21.classList.add("arrow");
+  // genre dropdown for 2_21 (top genre)
+  let genreDropdownSpan21 = document.createElement("span");
+  genreDropdownSpan21.classList.add("arrow");
 
-  let countryDropdownContainer21 = document.querySelector("#dropdown-2_21");
-  let contryDropdown21 = document.createElement("select");
-  contryDropdown21.appendChild(countryDropdownSpan);
+  let genreDropdownContainer21 = document.querySelector("#dropdown-2_21");
+  let genreDropdown21 = document.createElement("select");
+  genreDropdown21.appendChild(genreDropdownSpan21);
 
-  let countries21 = visuals.viz_2_21.data.sort((a, b) =>
-    d3.ascending(a.COUNTRY_NAME, b.COUNTRY_NAME)
+  let genres21 = visuals.viz_2_21.data.sort((a, b) =>
+    d3.ascending(a.genre, b.genre)
   );
-  countries21 = Array.from(new Set(countries21.map((d) => d.COUNTRY_NAME)));
+  genres21 = Array.from(new Set(genres21.map((d) => d.genre)));
 
-  visuals.viz_2_21.params = countries21;
+  visuals.viz_2_21.params = genres21;
 
-  countries21.forEach((country) => {
+  genres21.forEach((country) => {
     let option = document.createElement("option");
     option.text = country;
-    contryDropdown21.add(option);
+    genreDropdown21.add(option);
   });
 
-  if (countryDropdownContainer21)
-    countryDropdownContainer21.appendChild(contryDropdown21);
+  if (genreDropdownContainer21)
+    genreDropdownContainer21.appendChild(genreDropdown21);
 
   ////////////////////////////////
   /////// load visuals ///////////
@@ -938,7 +924,7 @@ import { top_list } from "./top_list.js";
               observer.disconnect();
             }
             if (viz == "viz_2_21") {
-              visuals.viz_2_21.viz = top_list(
+              visuals.viz_2_21.viz = viz_2_21(
                 visuals.viz_2_21.data,
                 visuals.viz_2_21.mapping,
                 visuals.viz_2_21.options

@@ -413,22 +413,26 @@ export function top_list(data, map, options, svg) {
       .selectAll(".label")
       .data((d) => [d])
       .join("text")
-      .attr("x", (d) => yScale.bandwidth())
+      .attr("x", (d) =>
+        map.image ? yScale.bandwidth() : yScale.bandwidth() / 2
+      )
       .attr("y", (d) => yScale.bandwidth() / 2)
       .attr("dominant-baseline", "middle")
       .text((d) => d[map.y] + ". " + d[map.label])
       .classed("label", true);
 
-    const images = bar_group
-      .selectAll(".image")
-      .data((d) => [d])
-      .join("circle")
-      .attr("cx", yScale.bandwidth() * 0.5)
-      .attr("cy", yScale.bandwidth() * 0.5)
-      .attr("r", yScale.bandwidth() * (0.5 - options.padding))
-      .attr("fill", (d) => "url(#image-fill-" + d[map.image] + ")")
-      .attr("filter", "url(#drop-shadow)")
-      .classed("image", true);
+    if (map.image != null) {
+      const images = bar_group
+        .selectAll(".image")
+        .data((d) => [d])
+        .join("circle")
+        .attr("cx", yScale.bandwidth() * 0.5)
+        .attr("cy", yScale.bandwidth() * 0.5)
+        .attr("r", yScale.bandwidth() * (0.5 - options.padding))
+        .attr("fill", (d) => "url(#image-fill-" + d[map.image] + ")")
+        .attr("filter", "url(#drop-shadow)")
+        .classed("image", true);
+    }
   }
 
   update();
