@@ -446,8 +446,9 @@ export function top_list(data, map, options, svg) {
           .join("text")
           .attr("x", yScale.bandwidth() * 0.5)
           .attr("y", yScale.bandwidth() * 0.5)
-          .attr("dominant-baseline", "middle")
+          .attr("dominant-baseline", "central")
           .attr("text-anchor", "middle")
+          .style("font-size", yScale.bandwidth() * 0.4)
           .text((d) => flag_data.find((x) => x.code == d[map.flag]).emoji)
           .classed("flag", true);
       });
