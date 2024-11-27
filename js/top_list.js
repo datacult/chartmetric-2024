@@ -20,6 +20,8 @@ export function top_list(data, map, options, svg) {
     genre: null,
     stage: null,
     country: null,
+    image: null,
+    flag: null,
   };
 
   // merge default mapping with user mapping
@@ -414,7 +416,7 @@ export function top_list(data, map, options, svg) {
       .data((d) => [d])
       .join("text")
       .attr("x", (d) =>
-        map.image ? yScale.bandwidth() : yScale.bandwidth() / 2
+        map.image ? yScale.bandwidth() : yScale.bandwidth() / 1.25
       )
       .attr("y", (d) => yScale.bandwidth() / 2)
       .attr("dominant-baseline", "middle")
@@ -432,6 +434,23 @@ export function top_list(data, map, options, svg) {
         .attr("fill", (d) => "url(#image-fill-" + d[map.image] + ")")
         .attr("filter", "url(#drop-shadow)")
         .classed("image", true);
+    }
+
+    if (map.flag != null) {
+      d3.json(
+        "https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/index.json"
+      ).then((flag_data) => {
+        const flags = bar_group
+          .selectAll(".flag")
+          .data((d) => [d])
+          .join("text")
+          .attr("x", yScale.bandwidth() * 0.5)
+          .attr("y", yScale.bandwidth() * 0.5)
+          .attr("dominant-baseline", "middle")
+          .attr("text-anchor", "middle")
+          .text((d) => flag_data.find((x) => x.code == d[map.flag]).emoji)
+          .classed("flag", true);
+      });
     }
   }
 

@@ -570,6 +570,7 @@ import { viz_2_21 } from "./2_21.js";
         y: "rank",
         x: "total_avg_pct_share",
         image: null,
+        flag: "country_code",
         filter: "genre",
         stage: "total_instagram_followers",
         sort: "rank",
