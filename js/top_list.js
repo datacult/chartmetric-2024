@@ -45,10 +45,10 @@ export function top_list(data, map, options, svg) {
     stage_width: 150,
     genre_width: 150,
     genre_width_padding: 10,
-    tooltip_fill: "white",
+    tooltip_fill: "none",
     tooltip_stroke: "none",
-    tooltip_item_fill: "#F0F0F0",
-    stage_item_stroke: "#606060",
+    tooltip_item_fill: "none",
+    stage_item_stroke: "none",
   };
 
   // merge default options with user options

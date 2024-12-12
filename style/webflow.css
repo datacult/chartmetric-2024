@@ -2,10 +2,14 @@
 Released under the ISC license.
 https://studio.datacult.com/  */
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
 .viz {
   width: 100%;
   height: 100%;
   margin-bottom: 16px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
 }
 
 /* import Inter Font */
@@ -911,14 +915,6 @@ https://studio.datacult.com/  */
   width: 100%;
 }
 
-#viz_2_9 .label {
-  font-size: 1.2rem;
-}
-
-#viz_2_9 .genre_text,
-#viz_2_9 .stage_text {
-  font-size: 1rem;
-}
 
 @media (max-width: 580px) {
   #viz_2_9 .label {
@@ -1007,15 +1003,6 @@ Bar
   margin-right: 10px;
 }
 
-#viz_2_9 .artist-name {
-  font-family: "Inter";
-  font-weight: 700;
-  font-size: 0.5rem;
-  /* Adjust as needed */
-  color: black;
-  /* Adjust as needed */
-}
-
 /* Tooltip */
 
 #viz_2_9_tooltip {
@@ -1035,21 +1022,6 @@ Bar
   background: var(--colors-white, #fff);
   box-shadow: 0px 0px 15.698px 0px rgba(0, 0, 0, 0.08);
 }
-
-/* #viz_2_9 .name {
-  color: var(--800, #000);
-  text-align: center;
-
-
-  font-family: Inter;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 900;
-  line-height: normal;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-} */
 
 #viz_2_9 .flag {
   width: 1.5rem;
@@ -1071,7 +1043,6 @@ Bar
   border: 1px solid #9a9a9a;
   border-radius: 8px;
   /* Rounded corners */
-  font-size: 14px;
   /* Sets the font size */
 
   color: #9e9e9e;
@@ -1092,7 +1063,6 @@ Bar
   position: relative;
   border-radius: 8px;
   /* Rounded corners */
-  font-size: 14px;
   /* Sets the font size */
   /** To be editted: this helps include the buttons */
   margin-left: 10px;
@@ -1157,8 +1127,12 @@ Bar
   transition: transform 0.3s ease, z-index 0s;
 }
 
-#viz_2_9 .tooltip_rect{
-  fill: none;
+#viz_2_9 .bar_group .label{
+  font-size: 1.5rem;
+}
+
+#viz_2_9 .tooltip_group .tooltip_inner_group {
+  text-transform: capitalize;
 }
 
 @media (min-width: 760px) {
