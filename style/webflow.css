@@ -915,6 +915,15 @@ https://studio.datacult.com/  */
   width: 100%;
 }
 
+#viz_2_9 .label {
+  font-size: 1.5rem;
+}
+
+#viz_2_9 .genre_text,
+#viz_2_9 .stage_text {
+  font-size: 1.2rem;
+  text-transform: capitalize;
+}
 
 @media (max-width: 580px) {
   #viz_2_9 .label {
@@ -1039,13 +1048,8 @@ Bar
 #viz_2_9 .career-stack {
   padding: 2px 8px;
   /* Adjusts the size of the button */
-  background-color: #eeeeee;
-  border: 1px solid #9a9a9a;
-  border-radius: 8px;
-  /* Rounded corners */
   /* Sets the font size */
-
-  color: #9e9e9e;
+  font-size: 1.2rem;
   /* Dark grey text color */
   text-align: center;
   /* Centers the text */
@@ -1063,7 +1067,9 @@ Bar
   position: relative;
   border-radius: 8px;
   /* Rounded corners */
+  text-transform: capitalize;
   /* Sets the font size */
+  font-size: 1.2rem;
   /** To be editted: this helps include the buttons */
   margin-left: 10px;
   /* Ensure there is enough space for the cards to pop */
@@ -1082,14 +1088,13 @@ Bar
   text-align: center;
   text-transform: capitalize;
   /* Adjust padding to vertically center the text */
-
   transition: transform 0.3s ease, z-index 0.3s ease;
   border-radius: 4px;
   /* Slight rounding of corners as seen in the image */
   font-family: Inter;
-  font-size: 14px;
+  font-size: 1.2rem;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 600;
   line-height: normal;
   overflow: hidden;
   white-space: nowrap;
@@ -1127,14 +1132,6 @@ Bar
   transition: transform 0.3s ease, z-index 0s;
 }
 
-#viz_2_9 .bar_group .label{
-  font-size: 1.5rem;
-}
-
-#viz_2_9 .tooltip_group .tooltip_inner_group {
-  text-transform: capitalize;
-}
-
 @media (min-width: 760px) {
   #viz_2_9 .gradient-bar {
     background-image: linear-gradient(
@@ -1160,7 +1157,7 @@ Bar
 
 #viz_2_21 .genre_text,
 #viz_2_21 .stage_text {
-  font-size: 1rem;
+  font-size: 1.2rem;
 }
 
 @media (max-width: 580px) {
