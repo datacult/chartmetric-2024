@@ -919,8 +919,8 @@ https://studio.datacult.com/  */
   font-size: 1.5rem;
 }
 
-#viz_2_9 .genre_text,
-#viz_2_9 .stage_text {
+.genre_text,
+.stage_text {
   font-size: 1.2rem;
   text-transform: capitalize;
 }
@@ -932,11 +932,11 @@ https://studio.datacult.com/  */
 }
 @media (min-width: 1980px) {
   #viz_2_9 .label {
-    font-size: 0.8rem;
+    font-size: 1.5rem;
   }
   #viz_2_9 .genre_text,
   #viz_2_9 .stage_text {
-    font-size: 0.8rem;
+    font-size: 1.2rem;
   }
 }
 
@@ -1009,7 +1009,7 @@ Bar
   /* Adjust as needed */
   border-radius: 50%;
   /* This will make it a circle */
-  margin-right: 10px;
+  margin-right: 15px;
 }
 
 /* Tooltip */
