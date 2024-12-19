@@ -275,6 +275,18 @@ export function viz_2_8_slope(data, map, options) {
       });
   }
 
+  let position_labels_left = svg
+  .selectAll(".position_labels_left")
+  .data([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+  .join("text")
+  .attr("class", "position_labels_left")
+  .attr("x", -15)
+  .attr("dx", -15)
+  .attr("y", (d) => yScale(d - 0.5))
+  .attr("dominant-baseline", "central")
+  .attr("text-anchor", "middle")
+  .text((d) => d);
+
   let position_labels = svg
     .selectAll(".position_labels")
     .data([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
@@ -299,6 +311,7 @@ export function viz_2_8_slope(data, map, options) {
   xAxis
     .selectAll(".tick>text")
     .attr("dominant-baseline", "middle")
+    .attr("dx", -10)
     .attr("dy", -30)
     .classed("year_labels", true);
 
