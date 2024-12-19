@@ -32,13 +32,13 @@ export function chartmetric_circlepack(data, map, options) {
     delay: 100,
     padding: 0.1,
     size: 10,
-    fill: "#69b3a2",
-    stroke: "#000",
+    fill: "black",
+    stroke: "black",
     opacity: 0.2,
     focus: -1,
     background: null,
     blend: "none",
-    text: "#000"
+    text: "black"
   }
 
   // merge default options with user options
@@ -73,6 +73,7 @@ export function chartmetric_circlepack(data, map, options) {
     .attr("opacity", 0)
     .style("position", "fixed")
     .style("pointer-events", "none")
+    .style("background-color", "black")
     .classed('tooltip', true);
 
   if (map.image != null) {
@@ -269,12 +270,14 @@ export function chartmetric_circlepack(data, map, options) {
             .append("div")
             .html(d.data.title)
             .style("font-weight", "bold")
+            .style("color","white")
             .attr("id", options.selector.substring(1) + "_tooltip_title", true);
 
           tooltip
             .append("div")
             .html(d.parent.data.title)
             .style("font-weight", "normal")
+            .style("color","white")
             .attr("id", options.selector.substring(1) + "_tooltip_subtitle", true);
 
           tooltip

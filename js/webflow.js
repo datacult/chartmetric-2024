@@ -125,7 +125,7 @@ import { viz_2_21 } from "./2_21.js";
         fill: "black",
         stroke: "white",
         background:
-          "https://share.chartmetric.com/year-end-report/2024/design-assets/circular_gradient_2_1.svg",
+          "https://datacult.github.io/chartmetric-2024/assets/2_14_gradient.svg",
         blend: "soft-light",
       },
       mapping: {
@@ -463,7 +463,7 @@ import { viz_2_21 } from "./2_21.js";
         selector: "#viz_2_14",
         fill: "black",
         stroke: "white",
-        text: "white",
+        text: "black",
         background:
           "https://datacult.github.io/chartmetric-2024/assets/2_14_gradient.svg",
         blend: "soft-light",
