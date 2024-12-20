@@ -830,6 +830,9 @@ https://studio.datacult.com/  */
 #viz_2_8 text {
   font-size: 18px;
 }
+#viz_2_8 text.position_labels_left {
+  font-size: 20px;
+}
 
 #viz_2_8 text.position_labels {
   font-size: 20px;

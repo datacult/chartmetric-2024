@@ -131,7 +131,7 @@ import { viz_2_21 } from "./2_21.js";
       mapping: {
         value: "PEAK_CM_SCORE",
         label: "NAME",
-        group: "COUNTRY",
+        group: "COUNTRY_NAME",
         image: "IMAGE_URL",
       },
       params: ["NAME", "GENDER"],
