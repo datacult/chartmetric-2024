@@ -27,9 +27,9 @@ export function viz_2_3(data, selector) {
     };
 
     const colorScale = d3.scaleOrdinal(platforms, [
-      "#E7F0ED",
-      "#E1E8EE",
-      "#F1E5F3",
+      "rgba(175,214,0,0.3)",
+      "rgba(232,104,153,0.3)",
+      "rgba(73,206,199,0.3)",
     ]);
     platforms.forEach((platform) => {
       // Filter and sort data based on the platform

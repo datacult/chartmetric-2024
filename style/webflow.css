@@ -363,14 +363,13 @@ https://studio.datacult.com/  */
   margin-bottom: 5px;
   font-weight: 700;
   font-size: 17px;
-  font-family: "DecimaMonoPro", monospace;
 }
 
 #viz_1_5 .billHR {
   display: flex;
   flex-basis: 100%;
   align-items: center;
-  font: 14px "DecimaMonoPro", monospace;
+  font: 14px;
   text-transform: uppercase;
   color: rgba(0, 0, 0, 0.438);
   margin: 8px 0;
@@ -391,7 +390,7 @@ https://studio.datacult.com/  */
   text-align: left;
   margin-top: 10px;
   margin-bottom: 10px;
-  font-family: "Decima", Helvetica, sans-serif;
+  font-family: Helvetica, sans-serif;
   line-height: 1.4em;
   font-size: 15px;
   /* white-space: pre-line; */
