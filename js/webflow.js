@@ -134,7 +134,7 @@ import { viz_2_21 } from "./2_21.js";
         group: "COUNTRY_NAME",
         image: "IMAGE_URL",
       },
-      params: ["NAME", "GENDER"],
+      params: ["COUNTRY_NAME", "GENDER"],
       update: function (param) {
         if (param !== undefined && param !== null) {
           this.mapping.group = param;
