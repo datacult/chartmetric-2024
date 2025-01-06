@@ -37,7 +37,7 @@ export function viz_1_2(data, map, options) {
   }
 
   gender_data.forEach(d => {
-    d.color = d.sub_type == "Male Users" ? "#fff" : "#d7d7d7"
+    d.color = d.sub_type == "Male Users" ? "#fff" : "#707070"
   })
 
 
