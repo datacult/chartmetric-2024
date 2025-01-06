@@ -4,7 +4,7 @@
 
 // Description: Top Tracks DIV based viz
 
-export function viz_1_3(data = [], selector = "vis", platform = "Youtube") {
+export function viz_1_3(data = [], selector = "vis", platform = "YouTube views") {
   function update(newData = data, newPlatform = platform) {
     data = newData != null ? newData : data;
     platform = newPlatform;
